@@ -40,9 +40,9 @@ int main() {
     const double y_min = -1.0;
     const double y_max = 1.0;
 
-    tbb::parallel_for(
-        tbb::blocked_range<int>(0, display_height),
-        [&](tbb::blocked_range<int> const& r) {
+    tbb::parallel_for(                                  // parallel_for to parallelize the loop
+        tbb::blocked_range<int>(0, display_height),     // blocked_range for rows
+        [&](tbb::blocked_range<int> const& r) {         // [&] to capture all variables by reference. blocked_range to specify the range
             for (int y = r.begin(); y != r.end(); ++y) {
                 for (int x = 0; x != display_width; ++x) {
                     auto k = mandelbrot(top_left + Complex{delta_x * x, delta_y * y});
