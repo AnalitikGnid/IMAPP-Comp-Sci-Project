@@ -19,4 +19,4 @@ add_executable(mandelbrot main.cpp)
 #target_link_libraries(mandelbrot PRIVATE sfml-graphics)
 
 #add_executable(mandelbrot_par main_par.cpp)
-target_link_libraries(mandelbrot_par PRIVATE TBB::tbb sfml-graphics)
+target_link_libraries(mandelbrot PRIVATE TBB::tbb sfml-graphics)
