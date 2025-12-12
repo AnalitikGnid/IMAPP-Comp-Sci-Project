@@ -41,7 +41,7 @@ int main() {
     std::vector<std::pair<int, double>> grain_size_times;
 
     // Loop over different grain sizes to test performance
-    for (int grain_size = 1; grain_size < display_height; grain_size *= 2) {  // We can of course change the grain size progression
+    for (int grain_size = 1; grain_size < display_height; grain_size += 10) {  // We can of course change the grain size progression
         auto start = std::chrono::steady_clock::now();
 
         // Execute the parallel computation using the TBB package
