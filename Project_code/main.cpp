@@ -3,6 +3,8 @@
 #include <atomic>
 #include <chrono>
 #include <complex>
+#include <iostream>
+#include <vector>
 
 using Complex = std::complex<double>;
 
@@ -34,12 +36,6 @@ int main() {
 
     sf::Image image;
     image.create(display_width, display_height);
-
-    // Define the region in the complex plane
-    const double x_min = -2.0;
-    const double x_max = 1.0;
-    const double y_min = -1.0;
-    const double y_max = 1.0;
 
     // Define list that stores the grain size and the corresponding time taken
     std::vector<std::pair<int, double>> grain_size_times;
