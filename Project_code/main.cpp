@@ -25,8 +25,8 @@ auto to_color(int k) {
 
 int main() {
     // Define the image dimensions
-    const int display_width = 800;
-    const int display_height = 800;
+    const int display_width = 1200;
+    const int display_height = 1200;
 
     Complex const top_left{-2.2, 1.5};
     Complex const lower_right{0.8, -1.5};
@@ -44,7 +44,7 @@ int main() {
     std::vector<std::pair<int, double>> grain_size_times;
 
     // Loop over different grain sizes to test performance
-    for (int grain_size = 1; grain_size < display_height; grain_size += 10) {  // We can of course change the grain size progression
+    for (int grain_size = 1; grain_size <= display_height; grain_size < 10 ? ++grain_size : grain_size += 10) {  // We can of course change the grain size progression
         auto start = std::chrono::steady_clock::now();
 
         // Execute the parallel computation using the TBB package
