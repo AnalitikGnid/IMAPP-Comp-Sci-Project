@@ -33,3 +33,5 @@ ax2.grid(True)
 
 plt.tight_layout()
 plt.show()
+
+plt.savefig("/workspace/time_vs_grain_size.png", dpi=120)
