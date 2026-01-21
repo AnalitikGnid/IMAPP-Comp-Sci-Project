@@ -25,3 +25,5 @@ plt.xlabel("Grain size")
 plt.ylabel("Time taken (microseconds)")
 plt.title("Grain size vs Execution Time (1200x1200, 2 cores)")
 plt.show()
+
+plt.savefig('/workspace/time_vs_grain_size.png', dpi=120)
