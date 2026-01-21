@@ -48,10 +48,11 @@ int main() {
 
         // Run each grain size 5 times to get an average time (the number of tasks will remain the same)
         double total_time = 0;
+        std::atomic<int> task_count; // Define atomic to count tasks. Define here so that the scope is correct
         for (int i = 0; i < 5; ++i) {
             auto start = std::chrono::steady_clock::now();
 
-            std::atomic<int> task_count{0};
+            task_count = 0; // Reset task count for each run
 
             // Execute the parallel computation using the TBB package
             tbb::parallel_for(                                                                           // parallel_for to parallelize the loop
@@ -72,6 +73,7 @@ int main() {
             auto elapsed_time = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
             total_time += elapsed_time.count();
         }
+
         double average_time = total_time / 5.0;
         std::cout << "Grain size: " << grain_size << ", Average time taken: " << average_time << " microseconds, Tasks: " << task_count.load() << "\n";
 
